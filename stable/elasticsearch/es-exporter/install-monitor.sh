@@ -1,0 +1,1 @@
+helm upgrade --install prom-es-exporter -f values.yaml stable/elasticsearch-exporter

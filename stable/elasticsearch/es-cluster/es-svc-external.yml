@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: elasticsearch-external
+  namespace: logging
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: '0.0.0.0/0'
+  labels:
+    app: elasticsearch
+spec:
+  selector:
+    app: elasticsearch
+  type: LoadBalancer
+  ports:
+    - name: rest
+      port: 9200
